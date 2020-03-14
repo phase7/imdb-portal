@@ -1,3 +1,5 @@
 # Specify filepatterns you want git to ignore.
-*secretfile.py
 
+/*
+!/imdbportal
+*secretfile.py
