@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search IMDB</title>
+	{% block head_block %}
+	{% endblock %}
+	
+
+	<style>
+		.header{
+			text-align: center;
+			margin: 10px;
+			padding: 10px;
+		}
+
+		.content{
+			margin: auto;
+			width: 80%;
+			text-align: justify;
+		}
+	</style>
+	{% block style_block %}
+	{% endblock %}
+</head>
+<body>
+	<div class="header">
+		<h1>{% block heading %}
+			
+		{% endblock %}</h1>
+	</div>
+
+	<div class="content">
+		<p><a href="/">Go to Home</a></p>
+	{% block content %}
+
+	{% endblock %}
+	</div>
+
+
+	{% block js_block %}
+
+	{% endblock %}
+</body>
+</html>

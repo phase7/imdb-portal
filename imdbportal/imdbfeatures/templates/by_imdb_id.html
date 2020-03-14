@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{%block heading%}
+	{{data.title|title}}
+{%endblock%}
+
+{%block content%}
+	<ul>{%for key, value in data.items %}
+		{%if key == 'response'%}
+		{%elif key == 'poster'%}
+		{%elif key == 'imdb_id'%}
+		{%else%}
+			<p><li>{{key|title}} - {{value}}</li></p>
+		{%endif%}
+
+		{%endfor%}</ul>
+		
+{%endblock%}

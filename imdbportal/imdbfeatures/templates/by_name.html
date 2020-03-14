@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{%block heading%}
+	Search By Name
+{%endblock%}
+
+{%block content%}
+	<form method="GET">
+		{{form}} 
+		<!-- {% autoescape on %}
+    {{movies.movie_list.0}}
+{% endautoescape %} -->
+		<button type="submit">Search!</button>
+	</form><br>
+	{% if has_suggestions == 'True' %}
+		<ol>
+			{% for movie_name, id in movies.items  %}
+			<!-- {% with movies.movie as link %} -->
+			<li><a href="/imdb-id/{{id}}">{{movie_name}}</a></li>
+			<!-- https://docs.djangoproject.com/en/2.2/ref/templates/builtins/#url -->
+			<!-- {% endwith %} -->
+			{% endfor %}
+		</ol>
+	{% endif %}
+		
+{%endblock%}
+
