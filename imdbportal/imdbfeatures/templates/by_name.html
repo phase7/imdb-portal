@@ -2,15 +2,12 @@
 
 
 {%block heading%}
-	Search By Name
+	Movie Search
 {%endblock%}
 
 {%block content%}
 	<form method="GET">
 		{{form}} 
-		<!-- {% autoescape on %}
-    {{movies.movie_list.0}}
-{% endautoescape %} -->
 		<button type="submit">Search!</button>
 	</form><br>
 	{% if has_suggestions == 'True' %}
@@ -22,6 +19,8 @@
 			<!-- {% endwith %} -->
 			{% endfor %}
 		</ol>
+	{% else %}
+		<p>Search your movie, I'll suggest something close.</p>
 	{% endif %}
 		
 {%endblock%}

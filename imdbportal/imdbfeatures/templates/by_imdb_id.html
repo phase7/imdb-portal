@@ -1,19 +1,58 @@
 {% extends "base.html" %}
 
+{%block head_block%}
+	<style>
+		table, td, th{
+			border: 1.5px solid indigo;
+			border-collapse: collapse;
+		}
+
+		table tr:nth-child(even) {
+		  background-color: aliceblue;
+		}
+
+		table tr:nth-child(odd) {
+		  background-color: ghostwhite;
+		}
+
+		td, th {
+			padding: 8px;
+			text-align: left;
+		}
+		th {
+			width: 15%;
+		}
+		td{
+			width: 85%;
+		}
+		.center {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  margin-top: 5px;
+		  margin-bottom: 10px;
+		  border: .5px solid grey;
+		  padding: .5px;
+		}
+	</style>
+{%endblock%}
+
+
 
 {%block heading%}
 	{{data.title|title}}
 {%endblock%}
 
 {%block content%}
-	<ul>{%for key, value in data.items %}
+<img src="{{data.poster}}" alt="Movie poster not available!" class="center">
+<table>{%for key, value in data.items %}
 		{%if key == 'response'%}
 		{%elif key == 'poster'%}
 		{%elif key == 'imdb_id'%}
 		{%else%}
-			<p><li>{{key|title}} - {{value}}</li></p>
+			<tr><th>{{key|title}}</th><td>{{value}}</td></tr>
 		{%endif%}
 
-		{%endfor%}</ul>
+		{%endfor%}</table>
 		
 {%endblock%}

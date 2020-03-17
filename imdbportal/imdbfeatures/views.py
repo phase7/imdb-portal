@@ -50,3 +50,8 @@ def search_by_imdb_id(request, imdb_id):
 	}
 	return render(request, 'by_imdb_id.html', context)
 
+def test_table_view(request):
+
+	context = {}
+
+	return render(request, 'table-test.html', context)
