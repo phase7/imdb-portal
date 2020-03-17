@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{%block heading%}
+	Movie Search
+{%endblock%}
+
+{%block content%}
+	<form method="GET">
+		{{form}} 
+		<button type="submit">Search!</button>
+	</form><br>
+	{% if has_suggestions == 'True' %}
+		<ol>
+			{% for movie_name, id in movies.items  %}
+			<!-- {% with movies.movie as link %} -->
+			<li><a href="/imdb-id/{{id}}">{{movie_name}}</a></li>
+			<!-- https://docs.djangoproject.com/en/2.2/ref/templates/builtins/#url -->
+			<!-- {% endwith %} -->
+			{% endfor %}
+		</ol>
+	{% else %}
+		<p>Search your movie, I'll suggest something close.</p>
+	{% endif %}
+		
+{%endblock%}
+

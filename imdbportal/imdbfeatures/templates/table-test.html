@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{%block head_block%}
+	<style>
+		table, td, th{
+			border: 1px solid tomato;
+		}
+	</style>
+{%endblock%}
+
+{%block heading%}
+	Tables
+{%endblock%}
+
+{%block content%}
+	<table>
+		<!-- <caption>Caption of the table</caption> -->
+		<tr><th>heading</th><td>content</td></tr>
+		<tr><th>heading</th><td>content</td></tr>
+	</table>
+		
+{%endblock%}

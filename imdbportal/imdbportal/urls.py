@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from imdbfeatures.views import root_view, search_by_name_view, search_by_imdb_id, test_table_view
+
 urlpatterns = [
+    
+    path('', root_view),
+    path('table/', test_table_view),
     path('admin/', admin.site.urls),
+    path('byname/', search_by_name_view),
+    path('imdb-id/<str:imdb_id>', search_by_imdb_id, name='details-imdb-id'),
 ]
