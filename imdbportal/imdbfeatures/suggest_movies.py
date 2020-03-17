@@ -1,5 +1,5 @@
 
-def get_movie_names_for(srch_term):
+def get_movie_names_for_imdb(srch_term):
 	import requests, json
 	def jsonp_to_json(jsonp):
 		json = jsonp[jsonp.find('{'):-1]
@@ -22,8 +22,19 @@ def get_movie_names_for(srch_term):
 
 	return movie_names_with_id;
 
+def get_movie_names_for(srch_term):
+	import omdb
+	from .secretfile import omdbapikey #this is my own api for omdb
+#will not work outside django
+	client = omdb.OMDBClient(apikey=omdbapikey)
+	data = client.search_movie(srch_term)
 
+	movie_names_with_id = dict()
 
+	for i in range(len(data)):
+		instance = data[i]
+		movie_names_with_id[instance['title']] = instance['imdb_id']
+	return movie_names_with_id
 
 
 
